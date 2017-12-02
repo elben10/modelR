@@ -4,5 +4,12 @@ language: R
 sudo: false
 cache: packages
 
+notifications:
+  email:
+    recipients:
+      - elbenjakobjul@gmail.com
+    on_success: never # default: change
+    on_failure: always # default: always
+
 after_success:
     - Rscript -e 'covr::codecov()'
