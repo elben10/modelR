@@ -28,3 +28,23 @@ print.mod_lm <- function(x, ...) {
   cat("\nCoefficients:\n")
   print(x$coefficients, digits = 5)
 }
+
+#' @export
+summary.mod_lm <- function(object, ...) {
+  coefficients_mat <- cbind(object$coefficients,
+                            object$coefficients_se,
+                            object$t_values,
+                            object$prob_values)
+  rownames(coefficients_mat) <- names(object$coefficients)
+  colnames(coefficients_mat) <- c("Estimate", "StdErr", "t.value", "p.value")
+  res <- list(call = object$call,
+              coefficients = coefficients_mat,
+              r_squared = object$r_squared,
+              r_squared_adj = object$r_squared_adj,
+              sigma = object$sigma,
+              df = object$df,
+              resid_summary = summary(as.vector(object$resid), digits = 5)[-4])
+
+  class(res) <- "summary.mod_lm"
+  res
+}
