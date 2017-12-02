@@ -20,3 +20,11 @@ mod_lm <- function(data, formula, robust = FALSE) {
   class(res) <- "mod_lm"
   res
 }
+
+#' @export
+print.mod_lm <- function(x, ...) {
+  cat("\nCall:\n")
+  print(x$call)
+  cat("\nCoefficients:\n")
+  print(x$coefficients, digits = 5)
+}
