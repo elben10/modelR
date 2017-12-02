@@ -3,7 +3,7 @@ Version: 0.0.0.9000
 Title: Statistical modelling made easy
 Description: Statistical modelling made easy
 Authors@R: person("Jakob Jul", "Elben", , "elbenjakobjul@gmail.com", c("aut", "cre"))
-License: What license it uses
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 ByteCompile: true
