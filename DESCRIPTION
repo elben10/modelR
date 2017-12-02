@@ -10,7 +10,8 @@ Imports:
     magrittr,
     Rcpp
 Suggests: 
-    covr
+    covr,
+    testthat
 LinkingTo: 
     Rcpp,
     RcppArmadillo
