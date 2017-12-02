@@ -48,3 +48,21 @@ summary.mod_lm <- function(object, ...) {
   class(res) <- "summary.mod_lm"
   res
 }
+
+#' @export
+print.summary.mod_lm <- function(x, ...) {
+  cat("\nCall:\n")
+  print(x$call)
+  cat("\nResiduals:\n")
+  print(x$resid_summary)
+  cat("\n")
+
+  printCoefmat(x$coefficients, P.values=TRUE, has.Pvalue=TRUE)
+  digits <- max(3, getOption("digits") - 3)
+  cat("\nResidual standard error: ", formatC(x$sigma, digits=digits), " on ",
+      formatC(x$df), " degrees of freedom\n", sep="")
+  cat("Multiple R-squared: ", formatC(x$r_squared, digits=digits),
+      ",\tAdjusted R-squared: ",formatC(x$r_squared_adj, digits=digits),
+      "\n", sep="")
+  invisible(x)
+}
