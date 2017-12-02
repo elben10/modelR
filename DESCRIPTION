@@ -2,14 +2,13 @@ Package: modelR
 Title: Statistical modelling made easy
 Version: 0.0.0.9000
 Authors@R: person("Jakob Jul", "Elben", , "elbenjakobjul@gmail.com", c("aut", "cre"))
-Description: Statistical modelling made easy
+Description: Statistical modelling made easy.
 License: MIT + file LICENSE
 URL: https://github.com/elben10/modelR
 BugReports: https://github.com/elben10/modelR/issues
 Imports: 
     magrittr,
-    Rcpp,
-    RcppArmadillo
+    Rcpp
 Suggests: 
     covr
 LinkingTo: 

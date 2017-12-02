@@ -6,7 +6,7 @@
 \alias{modelR-package}
 \title{modelR: Statistical modelling made easy}
 \description{
-Statistical modelling made easy
+Statistical modelling made easy.
 }
 \seealso{
 Useful links:
