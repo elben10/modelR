@@ -8,7 +8,8 @@ URL: https://github.com/elben10/modelR
 BugReports: https://github.com/elben10/modelR/issues
 Imports: 
     magrittr,
-    Rcpp
+    Rcpp,
+    rlang
 Suggests: 
     covr,
     testthat

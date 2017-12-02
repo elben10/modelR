@@ -66,3 +66,43 @@ print.summary.mod_lm <- function(x, ...) {
       "\n", sep="")
   invisible(x)
 }
+
+#' @export
+vcov.mod_lm <- function(object, ...) {
+  res <- object$coefficients_var
+  rownames(res) <- names(coef(object))
+  colnames(res) <- names(coef(object))
+  res
+}
+
+#' @export
+predict.mod_lm <- function(object, newdata = NULL, ...) {
+  if (is_null(newdata)) {
+    y_fit <- as.vector(object$fitted)
+  } else {
+    if (!is_null(object$formula)) {
+      X <- model.matrix(object$formula, newdata)
+    } else {
+      X <- newdata
+    }
+    y_fit <- as.vector(X %*% coef(object))
+  }
+  y_fit
+}
+
+#' @export
+residuals.mod_lm <- function(object, newdata = NULL, ...) {
+  if (is_null(newdata)) {
+    resid <- as.vector(object$resid)
+  } else {
+    if (!is_null(object$formula)) {
+      X <- model.matrix(object$formula, newdata)
+    } else {
+      X <- newdata
+    }
+    y_fit <- as.vector(X %*% coef(object))
+    y <- model.response(model.frame(object$formula, data = newdata))
+    resid <- as.vector(y - y_fit)
+  }
+  resid
+}
